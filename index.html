@@ -33,6 +33,87 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+/* dark */ 
+
+.modedark{display:inline-block;float:right;margin-top:3px;position:absolute;right:45px;top:0;z-index:999;}
+.modedark svg{width:24px;height:24px;vertical-align:-5px;background-repeat:no-repeat!important;content:'';}
+
+.modedark svg path{fill:#fff;}
+
+.iconmode{cursor:pointer;display:block;padding:8px;background-position:center;transition:all .5s linear;}
+
+.iconmode:hover{border-radius:100px;}
+
+.check{display:none;}
+
+.modedark .iconmode .openmode{display:block;}
+
+.modedark .iconmode .closemode{display:none;}
+
+.modedark .check:checked ~ .iconmode .openmode{display:none;}
+
+.modedark .check:checked ~ .iconmode .closemode{display:block;}
+
+.Night{background:#0c0c0c;color:#fff;}
+
+.Night #wrapper{background:#121212;color:#ddd;}
+
+.Night #header-container{background:#000;color:#ddd;}
+
+.Night #cssmenu ul ul li{background:#121212;}
+
+.Night #cssmenu ul ul li a{color:#fff;background:#121212;}
+
+.Night #cssmenu ul li{background:#000;}
+
+.Night #cssmenu ul li a,#cssmenu ul ul li a{color:#ddd;}
+
+.Night .above-post-widget h2{color:#ddd;}
+
+.Night .latest-post-title h2{color:#ddd;}
+
+.Night h2.post-title a{color:#ddd;}
+
+.Night h1.post-title{color:#ddd;}
+
+.Night .sidebar h2{color:#ddd;}
+
+.Night .sidebar-sticky h2{color:#ddd;}
+
+.Night .sidebar h2,.Night .sidebar-sticky h2{border-bottom:2px solid #ddd;}
+
+.Night .sidebar h2::before,.Night .sidebar-sticky h2::before{background-color:#ddd;}
+
+.Night .artikel-terbaru a{color:#ddd;}
+
+.Night .artikel-terbaru a:hover{color:#0078d4;}
+
+.Night .artikel-terbaru ul li::before{color:#ddd;}
+
+.Night .PopularPosts ul li a{color:#ddd;}
+
+.Night .author-profile >span{color:#595959;}
+
+.Night .tableOfContent{border-color:rgba(255,255,255,.1);background-color:#15202b;}
+
+.Night .tableOfContent #tocContent a{color:#fff;}
+
+.Night .tableOfContent #tocContent ol ul:before,.post-body .tableOfContent ol ol:before,.post-body .tableOfContent #tocContent ul ol:before,.post-body .tableOfContent ul ul:before{border-left:1px dashed rgba(234,228,228,0.2);}
+
+.Night .comments h3{color:#fff;}
+
+.Night #Related ul li a.judul{color:#fff;}
+
+.Night #Related ul li a.judul:hover,#Related ul li:hover a.judul{color:#fff;}
+
+.Night #comments .comment .comment-content,.comment .comment-body{color:#fff;}
+
+.Night #footer-wrapperx{background:#000;}
+
+.Night #footbawah{background:#121212;color:#fff;}
+
+.Night #footbawah a,.Night .Profile .profile-link,.Night .Profile .profile-name-link,.Night .related-post-style-3 .related-post-item-title{color:#ddd;}
+
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -451,6 +532,7 @@
                             <a href="#" class="dropdown-item text-center">See all message</a>
                         </div>
                     </div>
+                    <div class='modedark'><input class='check' id='modedark' title='Mode Dark' type='checkbox'/><label class='iconmode' for='modedark'><svg class='openmode' viewbox='0 0 24 24'><path d='M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z'/></svg><svg class='closemode' viewbox='0 0 24 24'><path d='M14.3,16L13.6,14H10.4L9.7,16H7.8L11,7H13L16.2,16H14.3M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69M10.85,12.65H13.15L12,9L10.85,12.65Z'/></svg></label></div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell faa-ring animated me-lg-2"></i>
@@ -560,6 +642,20 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+<script>
+
+//<![CDATA[
+
+$(document).ready(function () {
+$("body").toggleClass(localStorage.toggled),
+$("#modedark").on("click", function () {
+"Night" != localStorage.toggled ? ($("body").toggleClass("Night", !0), localStorage.toggled = "Night", $(".section-center").css("display", "block")) : ($("body").toggleClass("Night", !1), localStorage.toggled = "", $(".section-center").css("display", ""))
+ }),
+$("body").hasClass("Night") ? $("#modedark").prop("checked", !0) : $("#modedark").prop("checked", !1)
+});
+//]]>
+  </script>
+
 </body>
 
 </html>
